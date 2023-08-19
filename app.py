@@ -57,9 +57,9 @@ def hello_world():
  
 
  # pre_img=preprocess()
- # prediction = loaded_model.predict(np.array([pre_img]))
- # predicted_digit = np.argmax(prediction)
- # print(predicted_digit)
+ prediction = loaded_model.predict(np.array([pre_img]))
+ predicted_digit = np.argmax(prediction)
+ print(predicted_digit)
  
  return 'Hello, World BRO! hh  '
 
