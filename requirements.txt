@@ -7,4 +7,5 @@ opencv_python
 gunicorn
 tensorflow
 pip==22.0.4
+uvicorn
 
