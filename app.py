@@ -3,11 +3,22 @@ import joblib
 import pickle
 # import cv2
 import numpy as np
-import keras
+
+from keras import model_from_json 
+
+# opening and store file in a variable
+
+json_file = open('myModel.json','r')
+loaded_model_json = json_file.read()
+json_file.close()
+loaded_model = model_from_json(loaded_model_json)
+
+loaded_model.load_weights("models_w.h5")
+
+
 app = Flask(__name__)
 
-with open('mnist.pkl', 'rb') as pickle_file:
-    model=pickle.load(pickle_file)
+
 
 @app.route('/')
 def hello_world():
