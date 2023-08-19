@@ -83,7 +83,7 @@ from fastapi.middleware.cors import CORSMiddleware
 # Configure CORS
 origins = [
     "http://localhost",
-    "http://localhost:5713",  # Add your React app's URL here
+    "http://localhost:5173",  # Add your React app's URL here
 ]
 
 app = FastAPI()
