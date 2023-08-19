@@ -1,6 +1,6 @@
 from flask import Flask
 import joblib
-import cv2
+# import cv2
 import numpy as np
 import keras
 app = Flask(__name__)
