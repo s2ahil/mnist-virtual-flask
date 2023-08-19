@@ -1,5 +1,5 @@
 flask
-joblib==1.1.0
+joblib
 keras
 numpy
 opencv_contrib_python
