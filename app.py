@@ -5,7 +5,8 @@ import numpy as np
 import keras
 app = Flask(__name__)
 
-model = joblib.load('./mnist.joblib')
+with open('mnist.pkl', 'rb') as pickle_file:
+    model=pickle.load(pickle_file)
 
 @app.route('/')
 def hello_world():
