@@ -3,6 +3,7 @@ import joblib
 import pickle
 import cv2
 import numpy as np
+from image_processing import preprocess
 
 from keras.models import model_from_json 
 
@@ -39,7 +40,7 @@ app = Flask(__name__)
 def hello_world():
     # Read the uploaded image
 #  image_path = '4.png'  # Replace with the path to your image
-
+ pre_img = preprocess(image_path)
 
 
 #  def preprocess():
