@@ -2,6 +2,7 @@ from flask import Flask
 import joblib
 import cv2
 import numpy as np
+import keras_preprocessing
 app = Flask(__name__)
 
 model = joblib.load('mnist.joblib')
