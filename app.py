@@ -5,7 +5,7 @@ import numpy as np
 import keras
 app = Flask(__name__)
 
-model = joblib.load('mnist.joblib')
+model = joblib.load('mnist.pkl')
 
 @app.route('/')
 def hello_world():
