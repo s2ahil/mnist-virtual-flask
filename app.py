@@ -89,7 +89,7 @@ loaded_model = model_from_json(loaded_model_json)
 
 loaded_model.load_weights("models_w.h5")
 
-image_path = '4.png
+image_path = '4.png'
 
 
 
