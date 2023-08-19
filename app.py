@@ -4,7 +4,7 @@ import pickle
 # import cv2
 import numpy as np
 
-from keras import model_from_json 
+from keras.models import model_from_json 
 
 # opening and store file in a variable
 
