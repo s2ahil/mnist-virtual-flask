@@ -56,7 +56,7 @@ def hello_world():
  
 
  pre_img=preprocess()
- prediction = model.predict(np.array([pre_img]))
+ prediction = loaded_model.predict(np.array([pre_img]))
  predicted_digit = np.argmax(prediction)
  print(predicted_digit)
  
