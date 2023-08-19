@@ -5,7 +5,7 @@ import numpy as np
 import keras
 app = Flask(__name__)
 
-model = joblib.load('model.h5')
+model = joblib.load('./mnist.joblib')
 
 @app.route('/')
 def hello_world():
