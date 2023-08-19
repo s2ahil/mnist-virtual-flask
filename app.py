@@ -68,14 +68,13 @@
 #  app.run(host='0.0.0.0', port=5000, debug=True)
 
 
-from fastapi import FastAPI
-
-import joblib
-import pickle
-import cv2
+from fastapi import FastAPI, HTTPException, Form
+from PIL import Image
 import numpy as np
-from image_processing import preprocess
-from keras.models import model_from_json 
+import base64
+import io
+import cv2
+from keras.models import model_from_json
 
 
 
@@ -115,7 +114,30 @@ async def index():
  return {"message": "Hello World"+str(predicted_digit)}
 
 
+@app.post("/process-canvas-image/")
+async def process_canvas_image(dataURI: str = Form(...)):
+    try:
+        # Extract base64-encoded image data from dataURI
+        encoded_data = dataURI.split(",")[1]
+        decoded_image = base64.b64decode(encoded_data)
 
+        # Convert image data to OpenCV format
+        image_array = np.array(Image.open(io.BytesIO(decoded_image)))
+
+        # Preprocess the image
+        gray_image = cv2.cvtColor(image_array, cv2.COLOR_RGB2GRAY)
+        resized_image = cv2.resize(gray_image, (28, 28))
+        inverted_image = cv2.bitwise_not(resized_image)
+        pre_img = inverted_image.reshape(1, 28, 28, 1).astype('float32') / 255
+
+        # Predict digit using loaded model
+        prediction = loaded_model.predict(pre_img)
+        predicted_digit = np.argmax(prediction)
+
+        return {"predicted_digit": int(predicted_digit)}
+
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 
 
