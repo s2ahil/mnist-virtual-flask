@@ -1,7 +1,7 @@
 from flask import Flask
 import joblib
 import pickle
-# import cv2
+import cv2
 import numpy as np
 
 from keras.models import model_from_json 
