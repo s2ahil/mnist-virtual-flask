@@ -5,4 +5,5 @@ numpy
 opencv_contrib_python==4.8.0.74
 opencv_python==4.5.5.64
 gunicorn
+tensorflow
 
