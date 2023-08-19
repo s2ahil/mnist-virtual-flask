@@ -76,7 +76,15 @@ import io
 import cv2
 from keras.models import model_from_json
 
+from fastapi.middleware.cors import CORSMiddleware
 
+
+
+# Configure CORS
+origins = [
+    "http://localhost",
+    "http://localhost:5713",  # Add your React app's URL here
+]
 
 app = FastAPI()
 
