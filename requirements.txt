@@ -10,4 +10,5 @@ pip==22.0.4
 uvicorn
 fastapi
 pillow
+python-multipart
 
