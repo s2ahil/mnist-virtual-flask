@@ -6,4 +6,5 @@ opencv_contrib_python
 opencv_python
 gunicorn
 tensorflow
+pip==22.0.4
 
