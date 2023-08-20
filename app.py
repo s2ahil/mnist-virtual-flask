@@ -75,7 +75,7 @@ import base64
 import io
 import cv2
 from keras.models import model_from_json
-
+import PIL.Image
 from fastapi.middleware.cors import CORSMiddleware
 
 
@@ -141,7 +141,7 @@ async def process_canvas_image(request_data: dict):
             decoded_image = base64.b64decode(encoded_data)
 
             # Convert image data to OpenCV format
-            image_array = np.array(Image.open(io.BytesIO(decoded_image)))
+            image_array = np.array(PIL.Image.open(io.BytesIO(decoded_image)))
 
             # Preprocess the image
             gray_image = cv2.cvtColor(image_array, cv2.COLOR_RGB2GRAY)
